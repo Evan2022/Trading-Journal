@@ -3,3 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+form > h2 {
+    margin-bottom: 16px;
+}
+
+.form-input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn-submit{
+    background: #0275d8;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 16px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.alert > p {
+    margin: 0;
+
+}
