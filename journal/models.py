@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
 # Create your models here.
+
 
 class Journal(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -19,5 +19,3 @@ class Trade(models.Model):
     time = models.TimeField()
     date = models.DateField()
     journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
-
-
