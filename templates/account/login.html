@@ -8,6 +8,7 @@
     <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-white">
 
 
+
     </div>
     <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-light">
       <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -18,14 +19,14 @@
         <input type="text" name="login" class="form-input" placeholder="Username">
         <input type="password" name="password" class="form-input" placeholder="Password">
         {% if form.errors %}
-        <div class="alert alert-dark">
+        <div class="alert alert-danger">
             {% for field in form %}
-                {% for error in field.errors %}
-                    <p>{{ error }}</p>
-                {% endfor %}
+              {% for error in field.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
             {% endfor %}
             {% for error in form.non_field_errors %}
-                <p>{{ error }}</p>
+              <p>{{ error }}</p>
             {% endfor %}
         </div>
         {% endif %}

@@ -5,17 +5,53 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+<div class="container-fluid h-100 vh-100 p-0">
+  <div class="h-100 d-flex align-items-center justify-content-center bg-light">
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      <h2>{% trans "Sign Up" %}</h2>
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-6">
+          <input type="text" name="first_name" class="form-input" placeholder="First Name">
+        </div>
+        <div class="col-6">
+          <input type="text" name="last_name" class="form-input" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <input type="email" name="email" class="form-input" placeholder="Email">
+        </div>
+        <div class="col-6">
+          <input type="text" name="username" class="form-input" placeholder="Username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <input type="password" name="password1" class="form-input" placeholder="Password">
+        </div>
+        <div class="col-6">
+          <input type="password" name="password2" class="form-input" placeholder="Confirm Password">
+        </div>
+      </div>
+      {% if form.errors %}
+      <div class="alert alert-danger">
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <p>{{ error }}</p>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <p>{{ error }}</p>
+          {% endfor %}
+      </div>
+      {% endif %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+      <button class="btn-submit primaryAction" type="submit">{% trans "Sign Up" %}</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
