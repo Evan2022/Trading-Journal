@@ -14,7 +14,7 @@
       <form class="login" method="POST" action="{% url 'account_login' %}">
         <h2>{% trans "Sign In" %}</h2>
         {% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <a href="{{ signup_url }}">Sign up</a> first.{% endblocktrans %}</p>
         {% csrf_token %}
         <input type="text" name="login" class="form-input" placeholder="Username">
         <input type="password" name="password" class="form-input" placeholder="Password">
