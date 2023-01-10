@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from core.forms import CustomLoginForm, CustomSignupForm
-from journal.models import Journal, Trade
+from . models import Journal, Trade
 
 
 def login_view(request):

@@ -17,17 +17,10 @@ form > h2 {
     margin-bottom: 1rem;
 }
 
-.btn-submit{
-    background: #0275d8;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-top: 16px;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
 .alert > p {
     margin: 0;
+}
+
+thead {
+    color: #ccc;
 }
