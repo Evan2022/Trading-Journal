@@ -20,20 +20,21 @@
         <input type="password" name="password" class="form-input" placeholder="Password">
         {% if form.errors %}
         <div class="alert alert-danger">
-            {% for field in form %}
-              {% for error in field.errors %}
-                <p>{{ error }}</p>
-              {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-              <p>{{ error }}</p>
-            {% endfor %}
+          {% for field in form %}
+          {% for error in field.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
         </div>
         {% endif %}
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
+        <a class="button secondaryAction"
+          href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
         <button class="btn btn-primary mt-3" type="submit">{% trans "Sign In" %}</button>
       </form>
     </div>

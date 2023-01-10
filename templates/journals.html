@@ -1,4 +1,4 @@
-{% extends "auth_base.html" %}
+{% extends "account/base.html" %}
 
 {% load i18n %}
 
@@ -7,28 +7,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="mt-5 mb-5">{{ user }} Journals:</h1>
+            <h2 class="mt-5 mb-3">{{ user }} Journals:</h2>
             <table class="table table-bordered">
                 <thead>
-                <tr>
-                    <th scope="col">NAME</th>
-                    <th scope="col">BALANCE</th>
-                    <th scope="col">WIN RATE</th>
-                    <th scope="col">ACTION</th>
-                </tr>
+                    <tr>
+                        <th scope="col">NAME</th>
+                        <th scope="col">BALANCE</th>
+                        <th scope="col">WIN RATE</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {% for journal in journals %}
-                <tr>
-                    <td>{{ journal.name }}</td>
-                    <td>{{ journal.starting_balance }}</td>
-                    <td>TBC</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-secondary">Edit</button>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
-                    </td>
-                </tr>
-                {% endfor %}
+                    {% for journal in journals %}
+                    <tr>
+                        <td>{{ journal.name }}</td>
+                        <td>{{ journal.starting_balance }}</td>
+                        <td>TBC</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <button type="button" class="btn btn-outline-success">Add Journal</button>
