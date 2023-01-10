@@ -17,7 +17,8 @@ def signup_view(request):
 
 @login_required
 def journals(request):
-    return render(request, 'journals.html',)
+    journals = Journal.objects.filter(user=request.user)
+    return render(request, 'journals.html', {'journals': journals})
 
 @login_required
 def trades(request):
