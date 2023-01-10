@@ -4,7 +4,13 @@
 
 {% block content %}
 
-<h1>Journals:</h1>
-<button>Add Journal</button>
-
+<div class="container-fluid p-0 d-flex flex-column align-items-center justify-content-center bg-light">
+    <div>
+        <h1>{{ user }} Journals:</h1>
+            {% for journal in journals %}
+                <p>{{ journal.name }}</p>
+            {% endfor %}
+        <button class="mt-3">Add Journal</button>
+    </div>
+</div>
 {% endblock %}
