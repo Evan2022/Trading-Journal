@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2 class="mt-5 mb-3">{{ user }} Journals:</h2>
+            <h2 class="mt-5 mb-3">{{ user }}'s Journals:</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@
                         <td>{{ journal.starting_balance }}</td>
                         <td>TBC</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success"><a href="{% url 'trades' journal.id %}">Add Trade</a></button>
+                            <button type="button" class="btn btn-outline-success"><a href="{% url 'trades' journal.id %}">View</a></button>
                             <button type="button" class="btn btn-outline-secondary">Edit</button>
                             <button type="button" class="btn btn-outline-danger">Delete</button>
                         </td>

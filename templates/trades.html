@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2 class="mt-5 mb-3">{{ trade.journal.name }}</h2>
+            <h2 class="mt-5 mb-3">{{ journals.0.name }}</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -32,6 +32,7 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-outline-success">Add Trade</button>
+            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'journals' %}">Back</a></button>
         </div>
     </div>
 </div>
