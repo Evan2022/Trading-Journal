@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from core.forms import CustomLoginForm, CustomSignupForm
 from . models import Journal, Trade
+from . forms import JournalForm
 
 
 def login_view(request):
@@ -18,8 +19,14 @@ def signup_view(request):
 
 @login_required
 def journals(request):
+    form = JournalForm()
+    if request.method == 'POST':
+        form = JournalForm(request.POST)
+        if form.is_valid():
+            form.save(request.user)
     journals = Journal.objects.filter(user=request.user)
-    return render(request, 'journals.html', {'journals': journals})
+    context = {'form': form, 'journals': journals}
+    return render(request, 'journals.html', context)
 
 
 @login_required
@@ -28,3 +35,5 @@ def trades(request, journal_id):
     trades = Trade.objects.filter(journal=journal)
     context = {'journals': [journal], 'trades': trades}
     return render(request, 'trades.html', context)
+
+
