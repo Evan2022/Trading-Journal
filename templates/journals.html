@@ -11,6 +11,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th scope="col">CURRENCY</th>
                         <th scope="col">NAME</th>
                         <th scope="col">BALANCE</th>
                         <th scope="col">WIN RATE</th>
@@ -20,6 +21,7 @@
                 <tbody>
                     {% for journal in journals %}
                     <tr>
+                        <td>{{ journal.currency }}</td>
                         <td>{{ journal.name }}</td>
                         <td>{{ journal.starting_balance }}</td>
                         <td>TBC</td>

@@ -20,7 +20,7 @@
                 <tbody>
                     {% for trade in trades %}
                     <tr>
-                        <td>{{ trade.profit_loss }}</td>
+                        <td>{{ journals.0.symbol }}{{ trade.profit_loss }}</td>
                         <td>{{ trade.time }}</td>
                         <td>{{ trade.date }}</td>
                         <td>
