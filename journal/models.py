@@ -5,12 +5,11 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Journal(models.Model):
-    SYMBOLS = {'USD': '$', 'EUR': '€', 'JPY': '¥', 'GBP': '£'}
+    SYMBOLS = {'USD': '$', 'EUR': '€', 'GBP': '£'}
     CURRENCY_CHOICE = (
-        ('USD', SYMBOLS['USD'] + ' USD'),
-        ('EUR', SYMBOLS['EUR'] + ' EUR'),
-        ('JPY', SYMBOLS['JPY'] + ' JPY'),
-        ('GBP', SYMBOLS['GBP'] + ' GBP'),
+        ('USD', SYMBOLS['USD']),
+        ('EUR', SYMBOLS['EUR']),
+        ('GBP', SYMBOLS['GBP']),
     )
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICE)
     name = models.CharField(max_length=200, unique=True)
@@ -29,3 +28,4 @@ class Trade(models.Model):
     time = models.TimeField()
     date = models.DateField()
     journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
+    image_link = models.CharField(max_length=1000, blank=True, null=True) 
