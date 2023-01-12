@@ -24,7 +24,7 @@ def journals(request):
         form = JournalForm(request.POST)
         if form.is_valid():
             form.save(request.user)
-    journals = Journal.objects.filter(user=request.user)
+    journals = Journal.objects.filter(user=request.user).order_by('date_created')
     context = {'form': form, 'journals': journals}
     return render(request, 'journals.html', context)
 
@@ -35,5 +35,4 @@ def trades(request, journal_id):
     trades = Trade.objects.filter(journal=journal)
     context = {'journals': [journal], 'trades': trades}
     return render(request, 'trades.html', context)
-
 
