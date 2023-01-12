@@ -4,4 +4,37 @@
 
 {% block content %}
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mt-5 mb-3">{{ trade.journal.name }}</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">PROFIT/LOSS</th>
+                        <th scope="col">BALANCE</th>
+                        <th scope="col">WIN RATE</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trade in trades %}
+                    <tr>
+                        <td>{{ trade.profit_loss }}</td>
+                        <td>{{ trade.time }}</td>
+                        <td>{{ trade.date }}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-outline-success">Add Trade</button>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

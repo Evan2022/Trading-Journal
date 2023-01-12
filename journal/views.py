@@ -15,11 +15,16 @@ def signup_view(request):
     context = {'form': form}
     return render(request, 'signup.html', context)
 
+
 @login_required
 def journals(request):
     journals = Journal.objects.filter(user=request.user)
     return render(request, 'journals.html', {'journals': journals})
 
+
 @login_required
-def trades(request):
-    return render(request, 'trades.html',)
+def trades(request, journal_id):
+    journal = Journal.objects.get(id=journal_id, user=request.user)
+    trades = Trade.objects.filter(journal=journal)
+    context = {'journals': [journal], 'trades': trades}
+    return render(request, 'trades.html', context)

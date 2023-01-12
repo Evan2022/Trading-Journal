@@ -24,6 +24,7 @@
                         <td>{{ journal.starting_balance }}</td>
                         <td>TBC</td>
                         <td>
+                            <button type="button" class="btn btn-outline-success"><a href="{% url 'trades' journal.id %}">Add Trade</a></button>
                             <button type="button" class="btn btn-outline-secondary">Edit</button>
                             <button type="button" class="btn btn-outline-danger">Delete</button>
                         </td>

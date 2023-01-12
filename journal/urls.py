@@ -8,5 +8,5 @@ urlpatterns = [
     path('', LoginView.as_view(), name='home'),
     path('accounts/', include('allauth.urls')),
     path('journals/', journals, name='journals'),
-    path('trades/', trades, name='trades'),
+    path('trades/<int:journal_id>/', trades, name='trades'),
 ]
