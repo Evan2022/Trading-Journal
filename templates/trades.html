@@ -6,23 +6,31 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col">
             <h2 class="mt-5 mb-3">{{ journals.0.name }}</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">PROFIT/LOSS</th>
                         <th scope="col">TIME</th>
                         <th scope="col">DATE</th>
+                        <th scope="col">TRADE TYPE</th>
+                        <th scope="col">PROFIT/LOSS</th>
+                        <th scope="col">RESULT</th>
+                        <th scope="col">COMMENTS</th>
+                        <th scope="col">IMAGE LINK</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for trade in trades %}
                     <tr>
-                        <td>{{ journals.0.symbol }}{{ trade.profit_loss }}</td>
                         <td>{{ trade.time }}</td>
                         <td>{{ trade.date }}</td>
+                        <td>{{ trade.trade_type }}</td>
+                        <td>{{ journals.0.symbol }}{{ trade.profit_loss }}</td>
+                        <td>{{ trade.result }}</td>
+                        <td>{{ trade.comments }}</td>
+                        <td>{{ trade.image_link }}</td>
                         <td>
                             <button type="button" class="btn btn-outline-secondary">Edit</button>
                             <button type="button" class="btn btn-outline-danger">Delete</button>
@@ -31,11 +39,11 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-success">Add Trade</button>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addTradeModal">Add
+                Trade</button>
             <button type="button" class="btn btn-outline-secondary"><a href="{% url 'journals' %}">Back</a></button>
         </div>
     </div>
 </div>
-
 
 {% endblock %}

@@ -26,7 +26,8 @@
                         <td>{{ journal.symbol }}{{ journal.starting_balance }}</td>
                         <td>TBC</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success"><a href="{% url 'trades' journal.id %}">View</a></button>
+                            <button type="button" class="btn btn-outline-success"><a
+                                    href="{% url 'trades' journal.id %}">View</a></button>
                             <button type="button" class="btn btn-outline-secondary">Edit</button>
                             <button type="button" class="btn btn-outline-danger">Delete</button>
                         </td>
@@ -34,31 +35,51 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addJournalModal">Add Journal</button>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addJournalModal">Add
+                Journal</button>
         </div>
     </div>
 </div>
 <!-- Modal Code -->
-<div class="modal fade" id="addJournalModal" tabindex="-1" role="dialog" aria-labelledby="addJournalModalLabel" aria-hidden="true">
+<div class="modal fade" id="addJournalModal" tabindex="-1" role="dialog" aria-labelledby="addJournalModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addJournalModalLabel">Add Journal</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addJournalModalLabel">Add Journal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {{field.label}}
+                    {{field}}
+                    {% endfor %}
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-success">Save</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-            <form method="POST">
-                {% csrf_token %}
-                {{ form }}
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-success">Save</button>
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                  </div>
-            </form>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 {% endblock %}

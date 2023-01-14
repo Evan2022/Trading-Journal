@@ -33,6 +33,13 @@ def journals(request):
 def trades(request, journal_id):
     journal = Journal.objects.get(id=journal_id, user=request.user)
     trades = Trade.objects.filter(journal=journal)
-    context = {'journals': [journal], 'trades': trades}
+    if request.method == 'POST':
+        form = TradeForm(request.POST)
+        if form.is_valid():
+            trade = form.save(commit=False)
+            trade.journal = journal
+            trade.save()
+            return redirect('trades', journal_id)
+    context = {'journals': [journal], 'trades': trades, 'form': form}
     return render(request, 'trades.html', context)
 

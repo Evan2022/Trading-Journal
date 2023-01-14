@@ -13,3 +13,9 @@ class JournalForm(ModelForm):
         if commit:
             journal.save()
         return journal
+
+
+class TradeForm(ModelForm):
+    class Meta:
+        model = Trade
+        exclude = ['journal']

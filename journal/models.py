@@ -28,5 +28,15 @@ class Trade(models.Model):
     profit_loss = models.DecimalField(max_digits=15, decimal_places=2)
     time = models.TimeField()
     date = models.DateField()
+    trade_type = models.CharField(max_length=255, default="", blank=True)
+    comments = models.TextField(default="", blank=True)
+    image_link = models.CharField(max_length=1000, blank=True, null=True)
     journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
-    image_link = models.CharField(max_length=1000, blank=True, null=True) 
+
+    def result(self):
+        if self.profit_loss > 0:
+            return "Win"
+        elif self.profit_loss < 0:
+            return "Loss"
+        else:
+            return "Breakeven"
