@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from core.forms import CustomLoginForm, CustomSignupForm
 from . models import Journal, Trade
-from . forms import JournalForm
+from . forms import JournalForm, TradeForm
 
 
 def login_view(request):
@@ -31,6 +31,7 @@ def journals(request):
 
 @login_required
 def trades(request, journal_id):
+    form = TradeForm()
     journal = Journal.objects.get(id=journal_id, user=request.user)
     trades = Trade.objects.filter(journal=journal)
     if request.method == 'POST':
