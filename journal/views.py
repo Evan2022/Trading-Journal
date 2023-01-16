@@ -18,7 +18,11 @@ def signup_view(request):
 
 
 @login_required
-def journals(request):
+def deleteJournal(request):
+    if request.method == 'POST':
+        journal_id = request.POST.get('journal_id')
+        journal = Journal.objects.get(id=journal_id)
+        journal.delete()
     journals = Journal.objects.filter(user=request.user).order_by('date_created')
     context = {'journals': journals}
     return render(request, 'journals.html', context)

@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
 from allauth.account.views import LoginView
-from .views import journals, trades, jform, tform, updateJournal, updateTrade
+from .views import deleteJournal, trades, jform, tform, updateJournal, updateTrade
 
 urlpatterns = [
     path('', LoginView.as_view(), name='home'),
     path('accounts/', include('allauth.urls')),
-    path('journals/', journals, name='journals'),
+    path('journals/', deleteJournal, name='journals'),
     path('trades/<int:journal_id>/', trades, name='trades'),
     path('jform/', jform, name='jform'),
     path('tform/<int:journal_id>/', tform, name='tform'),

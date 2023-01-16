@@ -28,8 +28,10 @@
                         <td>
                             <button type="button" class="btn btn-outline-success"><a
                                     href="{% url 'trades' journal.id %}">View</a></button>
-                            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'update-journal' journal.id %}">Edit</a></button>
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                            <button type="button" class="btn btn-outline-secondary"><a
+                                    href="{% url 'update-journal' journal.id %}">Edit</a></button>
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                data-target="#deleteModal{{ journal.id }}">Delete</button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -39,4 +41,31 @@
         </div>
     </div>
 </div>
+
+{% for journal in journals %}
+<div class="modal fade" id="deleteModal{{ journal.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Journal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the journal "{{ journal.name }}"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <form method="post" action="{% url 'journals' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="journal_id" value="{{ journal.id }}">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
