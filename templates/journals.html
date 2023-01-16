@@ -11,8 +11,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">CURRENCY</th>
                         <th scope="col">NAME</th>
+                        <th scope="col">CURRENCY</th>
                         <th scope="col">BALANCE</th>
                         <th scope="col">WIN RATE</th>
                         <th scope="col">ACTION</th>
@@ -21,14 +21,14 @@
                 <tbody>
                     {% for journal in journals %}
                     <tr>
-                        <td>{{ journal.currency }}</td>
                         <td>{{ journal.name }}</td>
+                        <td>{{ journal.currency }}</td>
                         <td>{{ journal.symbol }}{{ journal.starting_balance }}</td>
                         <td>TBC</td>
                         <td>
                             <button type="button" class="btn btn-outline-success"><a
                                     href="{% url 'trades' journal.id %}">View</a></button>
-                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'update-journal' journal.id %}">Edit</a></button>
                             <button type="button" class="btn btn-outline-danger">Delete</button>
                         </td>
                     </tr>

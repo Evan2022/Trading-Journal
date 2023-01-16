@@ -26,9 +26,20 @@ def journals(request):
 
 def jform(request):
     form = JournalForm()
-
     if request.method == 'POST':
         form = JournalForm(request.POST)
+        if form.is_valid():
+            form.save(request.user)
+            return redirect('journals')
+    context = {'form': form}
+    return render(request, 'jform.html', context)
+
+
+def updateJournal(request, journal_id):
+    journal = Journal.objects.get(id=journal_id)
+    form = JournalForm(instance=journal)
+    if request.method == 'POST':
+        form = JournalForm(request.POST, instance=journal)
         if form.is_valid():
             form.save(request.user)
             return redirect('journals')
@@ -48,7 +59,6 @@ def tform(request, journal_id):
     form = TradeForm()
     journal = Journal.objects.get(id=journal_id, user=request.user)
     trades = Trade.objects.filter(journal=journal)
-
     if request.method == 'POST':
         form = TradeForm(request.POST)
         if form.is_valid():
