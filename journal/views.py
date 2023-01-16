@@ -68,3 +68,18 @@ def tform(request, journal_id):
             return redirect('trades', journal_id)
     context = {'form': form}
     return render(request, 'tform.html', context)
+
+
+def updateTrade(request, journal_id, trade_id):
+    journal = Journal.objects.get(id=journal_id, user=request.user)
+    trade = Trade.objects.get(id=trade_id, journal=journal)
+    form = TradeForm(instance=trade)
+    if request.method == 'POST':
+        form = TradeForm(request.POST, instance=trade)
+        if form.is_valid():
+            trade = form.save(commit=False)
+            trade.journal = journal
+            trade.save()
+            return redirect('trades', journal_id)
+    context = {'form': form}
+    return render(request, 'tform.html', context)
