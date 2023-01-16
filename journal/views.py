@@ -52,11 +52,16 @@ def updateJournal(request, journal_id):
 
 
 @login_required
-def trades(request, journal_id):
+def deleteTrade(request, journal_id):
     journal = Journal.objects.get(id=journal_id, user=request.user)
+    if request.method == 'POST':
+        trade_id = request.POST.get('trade_id')
+        trade = Trade.objects.get(id=trade_id, journal=journal)
+        trade.delete()
     trades = Trade.objects.filter(journal=journal)
     context = {'journal': journal,'trades': trades, }
     return render(request, 'trades.html', context)
+
 
 
 def tform(request, journal_id):

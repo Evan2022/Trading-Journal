@@ -57,11 +57,11 @@
                 Are you sure you want to delete the journal "{{ journal.name }}"?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                 <form method="post" action="{% url 'journals' %}">
                     {% csrf_token %}
                     <input type="hidden" name="journal_id" value="{{ journal.id }}">
-                    <input type="submit" class="btn btn-danger" value="Delete">
+                    <input type="submit" class="btn btn-outline-danger" value="Delete">
                 </form>
             </div>
         </div>
