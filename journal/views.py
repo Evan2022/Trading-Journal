@@ -17,21 +17,23 @@ def signup_view(request):
     return render(request, 'signup.html', context)
 
 
-def forms(request):
-    context = {}
-    return render(request, 'forms.html', context)
-
-
 @login_required
 def journals(request):
+    journals = Journal.objects.filter(user=request.user).order_by('date_created')
+    context = {'journals': journals}
+    return render(request, 'journals.html', context)
+
+
+def jform(request):
     form = JournalForm()
+
     if request.method == 'POST':
         form = JournalForm(request.POST)
         if form.is_valid():
             form.save(request.user)
-    journals = Journal.objects.filter(user=request.user).order_by('date_created')
-    context = {'form': form, 'journals': journals}
-    return render(request, 'journals.html', context)
+            return redirect('journals')
+    context = {'form': form}
+    return render(request, 'jform.html', context)
 
 
 @login_required
@@ -48,4 +50,3 @@ def trades(request, journal_id):
             return redirect('trades', journal_id)
     context = {'journals': [journal], 'trades': trades, 'form': form}
     return render(request, 'trades.html', context)
-

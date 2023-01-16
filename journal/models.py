@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
+
 class Journal(models.Model):
     SYMBOLS = {'USD': '$', 'EUR': '€', 'GBP': '£'}
     CURRENCY_CHOICE = (
