@@ -38,9 +38,17 @@ def jform(request):
 
 @login_required
 def trades(request, journal_id):
+    journal = Journal.objects.get(id=journal_id, user=request.user)
+    trades = Trade.objects.filter(journal=journal)
+    context = {'journal': journal,'trades': trades, }
+    return render(request, 'trades.html', context)
+
+
+def tform(request, journal_id):
     form = TradeForm()
     journal = Journal.objects.get(id=journal_id, user=request.user)
     trades = Trade.objects.filter(journal=journal)
+
     if request.method == 'POST':
         form = TradeForm(request.POST)
         if form.is_valid():
@@ -48,5 +56,5 @@ def trades(request, journal_id):
             trade.journal = journal
             trade.save()
             return redirect('trades', journal_id)
-    context = {'journals': [journal], 'trades': trades, 'form': form}
-    return render(request, 'trades.html', context)
+    context = {'form': form}
+    return render(request, 'tform.html', context)

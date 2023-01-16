@@ -39,7 +39,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-success">Add Trade</button>
+            <button type="button" class="btn btn-outline-success"><a href="{% url 'tform' journal.id %}">Add Trade</a></button>
             <button type="button" class="btn btn-outline-secondary"><a href="{% url 'journals' %}">Back</a></button>
         </div>
     </div>
