@@ -17,6 +17,11 @@ def signup_view(request):
     return render(request, 'signup.html', context)
 
 
+def forms(request):
+    context = {}
+    return render(request, 'forms.html', context)
+
+
 @login_required
 def journals(request):
     form = JournalForm()

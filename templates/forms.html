@@ -1,0 +1,20 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <h2 class="mt-5 mb-3">{{ journals.0.name }}</h2>
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
