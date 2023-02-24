@@ -41,3 +41,5 @@ class Trade(models.Model):
             return "Loss"
         else:
             return "Breakeven"
+
+

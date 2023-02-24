@@ -1,16 +1,22 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
-
+{% load static %}
 {% block content %}
 <div class="container-fluid h-100 vh-100">
   <div class="row h-100">
-    <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-white">
-
-
-
+    <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-primary p-0">
+      <div class="text-center">
+        <div class="d-inline-block logo-container">
+          <img class="logo img-fluid" src="static/images/logo.png" alt="Logo">
+        </div>
+        <h1 class="logo-text">TRADING JOURNAL</h1>
+      </div>
+      <div>
+        
+      </div>
     </div>
-    <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="col-6 h-100 d-flex align-items-center justify-content-center bg-light p-0">
       <form class="login" method="POST" action="{% url 'account_login' %}">
         <h2>{% trans "Sign In" %}</h2>
         {% blocktrans %}If you have not created an account yet, then please

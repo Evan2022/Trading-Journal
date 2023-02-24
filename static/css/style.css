@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Nerko+One&family=Permanent+Marker&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +8,10 @@
 
 form > h2 {
     margin-bottom: 16px;
+}
+
+h1, h2 {
+    font-family: 'Nerko One', cursive;
 }
 
 .form-input {
@@ -19,4 +25,16 @@ form > h2 {
 
 .alert > p {
     margin: 0;
+}
+
+
+.logo-container {
+    height: 60%;
+    width: 60%;
+}
+
+.logo-text {
+    color: white;
+    font-size:4vw;
+
 }
