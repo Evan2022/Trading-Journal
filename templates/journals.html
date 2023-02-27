@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row vh-100 d-flex justify-content-center">
         <div class="col-md-8">
             <h2 class="mt-5 mb-3">{{ user }}'s Journals:</h2>
             <table class="table table-bordered">
@@ -25,7 +25,7 @@
                         <td>{{ journal.currency }}</td>
                         <td>{{ journal.symbol }}{{ journal.starting_balance }}</td>
                         <td>TBC</td>
-                        <td>
+                        <td class=" d-flex justify-content-between">
                             <button type="button" class="btn btn-outline-success"><a
                                     href="{% url 'trades' journal.id %}">View</a></button>
                             <button type="button" class="btn btn-outline-secondary"><a

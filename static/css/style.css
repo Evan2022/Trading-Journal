@@ -20,7 +20,7 @@ h1, h2 {
 }
 
 .form-input {
-    border: 3px solid #007bff;;
+    border: 3px solid #007bff;
     border-radius: 4px;
     padding: 0.5rem;
     font-size: 1rem;
@@ -35,3 +35,10 @@ h1, h2 {
 .logo-container {
     width: 35%;
 }
+
+.logo-container > a {
+    color: white;
+}
+
+
+color: #ffc107;
