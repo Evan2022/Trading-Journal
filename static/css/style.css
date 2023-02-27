@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Nerko+One&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Patrick+Hand+SC&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Patrick Hand SC', cursive;
 }
 
 form > h2 {
@@ -14,8 +15,12 @@ h1, h2 {
     font-family: 'Nerko One', cursive;
 }
 
+.login {
+    width: 60%;
+}
+
 .form-input {
-    border: 1px solid #ccc;
+    border: 3px solid #007bff;;
     border-radius: 4px;
     padding: 0.5rem;
     font-size: 1rem;
@@ -27,14 +32,6 @@ h1, h2 {
     margin: 0;
 }
 
-
 .logo-container {
-    height: 60%;
-    width: 60%;
-}
-
-.logo-text {
-    color: white;
-    font-size:4vw;
-
+    width: 35%;
 }
