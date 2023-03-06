@@ -8,8 +8,8 @@
     <div class="row vh-100 d-flex justify-content-center">
         <div class="col-md-8">
             <h2 class="mt-5 mb-3">{{ user }}'s Journals:</h2>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table ">
+                <thead class="bg-primary">
                     <tr>
                         <th scope="col">NAME</th>
                         <th scope="col">CURRENCY</th>
@@ -25,19 +25,16 @@
                         <td>{{ journal.currency }}</td>
                         <td>{{ journal.symbol }}{{ journal.starting_balance }}</td>
                         <td>TBC</td>
-                        <td class=" d-flex justify-content-between">
-                            <button type="button" class="btn btn-outline-success"><a
-                                    href="{% url 'trades' journal.id %}">View</a></button>
-                            <button type="button" class="btn btn-outline-secondary"><a
-                                    href="{% url 'update-journal' journal.id %}">Edit</a></button>
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                                data-target="#deleteModal{{ journal.id }}">Delete</button>
+                        <td class="d-flex justify-content-between">
+                            <a class="btn btn-primary" href="{% url 'trades' journal.id %}">View</a>
+                            <a class="btn btn-primary" href="{% url 'update-journal' journal.id %}">Edit</a>
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#deleteModal{{ journal.id }}">Delete</button>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-success"><a href="{% url 'jform' %}">Add Journal</a></button>
+            <a class="btn btn-dark" href="{% url 'jform' %}">Add Journal</a>
         </div>
     </div>
 </div>

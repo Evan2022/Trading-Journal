@@ -8,8 +8,8 @@
     <div class="row justify-content-center">
         <div class="col">
             <h2 class="mt-5 mb-3">{{ journal.name }}</h2>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table">
+                <thead class="bg-primary">
                     <tr>
                         <th scope="col">TIME</th>
                         <th scope="col">DATE</th>
@@ -31,19 +31,17 @@
                         <td>{{ trade.result }}</td>
                         <td>{{ trade.comments }}</td>
                         <td>{{ trade.image_link }}</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-secondary"><a
-                                    href="{% url 'update-trade' journal.id trade.id %}">Edit</a></button>
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        <td class="d-flex justify-content-between">
+                            <a class="btn btn-primary" href="{% url 'update-trade' journal.id trade.id %}">Edit</a>
+                            <button type="button" class="btn btn-dark" data-toggle="modal"
                                 data-target="#deleteModal{{ trade.id }}">Delete</button>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-success"><a href="{% url 'tform' journal.id %}">Add
-                    Trade</a></button>
-            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'journals' %}">Back</a></button>
+            <a class="btn btn-dark" href="{% url 'tform' journal.id %}">Add Trade</a>
+            <a class="btn btn-primary" href="{% url 'journals' %}">Back</a>
         </div>
     </div>
 </div>

@@ -41,5 +41,17 @@ h1, h2 {
     color: white;
 }
 
+.table, .table > thead > tr > th {
+    border: 1px solid #292b2c;
+}
+
+
+th {
+    color: white;
+    font-weight: normal;
+
+}
+
+
 
 color: #ffc107;
