@@ -6,14 +6,13 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col col-sm-12 col-md-11 col-xl-9">
+        <div class="col col-sm-12 col-md-11 col-xl-8">
             <h2 class="mt-5 mb-3">{{ journal.name }}</h2>
             <table class="table">
                 <thead class="bg-primary">
                     <tr>
-                        <th scope="col">TIME</th>
-                        <th scope="col">DATE</th>
                         <th scope="col">TRADE TYPE</th>
+                        <th scope="col">DATE TIME</th>
                         <th scope="col">PROFIT/LOSS</th>
                         <th scope="col">RESULT</th>
                         <th scope="col">IMAGE</th>
@@ -23,9 +22,8 @@
                 <tbody>
                     {% for trade in trades %}
                     <tr>
-                        <td>{{ trade.time }}</td>
-                        <td>{{ trade.date }}</td>
                         <td>{{ trade.trade_type }}</td>
+                        <td>{{ trade.datetime }}</td>
                         <td>{{ journals.0.symbol }}{{ trade.profit_loss }}</td>
                         <td>{{ trade.result }}</td>
                         <td>{{ trade.image_link }}</td>

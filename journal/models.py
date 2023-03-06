@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
 
 # Create your models here.
 
@@ -27,8 +28,7 @@ class Journal(models.Model):
 
 class Trade(models.Model):
     profit_loss = models.DecimalField(max_digits=15, decimal_places=2)
-    time = models.TimeField()
-    date = models.DateField()
+    datetime = models.DateTimeField(default=timezone.now)
     trade_type = models.CharField(max_length=255, default="", blank=True)
     image_link = models.CharField(max_length=1000, blank=True, null=True)
     journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
@@ -40,5 +40,4 @@ class Trade(models.Model):
             return "Loss"
         else:
             return "Breakeven"
-
 
