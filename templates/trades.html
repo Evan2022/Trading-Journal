@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col">
+        <div class="col col-sm-12 col-md-11 col-xl-9">
             <h2 class="mt-5 mb-3">{{ journal.name }}</h2>
             <table class="table">
                 <thead class="bg-primary">
@@ -16,8 +16,7 @@
                         <th scope="col">TRADE TYPE</th>
                         <th scope="col">PROFIT/LOSS</th>
                         <th scope="col">RESULT</th>
-                        <th scope="col">COMMENTS</th>
-                        <th scope="col">IMAGE LINK</th>
+                        <th scope="col">IMAGE</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
@@ -29,7 +28,6 @@
                         <td>{{ trade.trade_type }}</td>
                         <td>{{ journals.0.symbol }}{{ trade.profit_loss }}</td>
                         <td>{{ trade.result }}</td>
-                        <td>{{ trade.comments }}</td>
                         <td>{{ trade.image_link }}</td>
                         <td class="d-flex justify-content-between">
                             <a class="btn btn-primary" href="{% url 'update-trade' journal.id trade.id %}">Edit</a>

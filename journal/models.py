@@ -30,7 +30,6 @@ class Trade(models.Model):
     time = models.TimeField()
     date = models.DateField()
     trade_type = models.CharField(max_length=255, default="", blank=True)
-    comments = models.TextField(default="", blank=True)
     image_link = models.CharField(max_length=1000, blank=True, null=True)
     journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
 

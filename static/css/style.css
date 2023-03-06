@@ -45,7 +45,6 @@ h1, h2 {
     border: 1px solid #292b2c;
 }
 
-
 th {
     color: white;
     font-weight: normal;
@@ -53,5 +52,16 @@ th {
 }
 
 
+@media (max-width: 767.98px) { 
+    * {
+        font-size: 14px;
+    }
 
-color: #ffc107;
+ }
+
+ @media (max-width: 660px) { 
+    * {
+        font-size: 12px;
+    }
+
+ }
