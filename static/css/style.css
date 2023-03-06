@@ -13,6 +13,7 @@ form > h2 {
 
 h1, h2 {
     font-family: 'Nerko One', cursive;
+    color: #292b2c;
 }
 
 .login {
@@ -33,7 +34,7 @@ h1, h2 {
 }
 
 .logo-container {
-    width: 35%;
+    width: 40%;
 }
 
 .logo-container > a {
