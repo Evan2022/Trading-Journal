@@ -63,7 +63,6 @@ def deleteTrade(request, journal_id):
     return render(request, 'trades.html', context)
 
 
-
 def tform(request, journal_id):
     form = TradeForm()
     journal = Journal.objects.get(id=journal_id, user=request.user)

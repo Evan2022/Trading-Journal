@@ -33,24 +33,28 @@ h1, h2 {
     margin: 0;
 }
 
-.logo-container {
-    width: 40%;
-}
-
-.logo-container > a {
-    color: white;
-}
-
 .table, .table > thead > tr > th {
     border: 1px solid #292b2c;
-}
-
-th {
+    text-align: center;
+    vertical-align: middle;
     color: white;
     font-weight: normal;
+}
+
+.table td {
+    vertical-align: middle !important;
+}
+
+.socials {
+    color: white;
+    padding: 0 25px 0 25px;
 
 }
 
+.socials:hover {
+    text-decoration: none;
+    color: #007bff;
+}
 
 @media (max-width: 767.98px) { 
     * {
