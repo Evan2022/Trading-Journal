@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from core.forms import CustomLoginForm, CustomSignupForm
 from . models import Journal, Trade
 from . forms import JournalForm, TradeForm
@@ -13,8 +14,14 @@ def login_view(request):
 
 def signup_view(request):
     form = CustomSignupForm()
+    if request.method == 'POST':
+        form = CustomSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('journals')
     context = {'form': form}
     return render(request, 'signup.html', context)
+
 
 
 @login_required

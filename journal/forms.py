@@ -1,7 +1,9 @@
 from django.forms import ModelForm
+from allauth.account.forms import SignupForm
 from . models import Journal, Trade
 from django import forms
 from django.forms.widgets import DateTimeInput
+
 
 class JournalForm(ModelForm):
     class Meta:
