@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from allauth.account.signals import user_signed_up
+from django.dispatch import receiver
+from django.core.mail import send_mail
 from core.forms import CustomLoginForm, CustomSignupForm
 from . models import Journal, Trade
 from . forms import JournalForm, TradeForm
+
+
+
+
+
 
 
 def login_view(request):

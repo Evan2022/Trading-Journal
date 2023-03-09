@@ -1,19 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Amaranth&family=Anton&family=Architects+Daughter&family=Bebas+Neue&family=Bubblegum+Sans&family=Bungee&family=Concert+One&family=Covered+By+Your+Grace&family=Crete+Round&family=Fira+Sans+Condensed:wght@300&family=Hammersmith+One&family=Josefin+Sans&family=Knewave&family=Markazi+Text&family=Outfit&family=PT+Sans+Narrow&family=Passion+One&family=Rubik+Mono+One&family=Sansita&family=Secular+One&family=Sniglet&family=Squada+One&family=Teko&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Architects Daughter', cursive;
+}
+
+h1, h2 {
+    color: #292b2c;
+    font-family: 'Knewave', cursive;
+
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-toggler {
+    color: white;
+    border: 2px solid white;
 }
 
 form > h2 {
     margin-bottom: 16px;
-}
-
-h1, h2 {
-    font-family: 'Nerko One', cursive;
-    color: #292b2c;
 }
 
 .login {
@@ -34,7 +44,7 @@ h1, h2 {
 }
 
 .table, .table > thead > tr > th {
-    border: 1px solid #292b2c;
+    border: 2px solid #292b2c;
     text-align: center;
     vertical-align: middle;
     color: white;
@@ -43,6 +53,7 @@ h1, h2 {
 
 .table td {
     vertical-align: middle !important;
+    color: #292b2c;
 }
 
 .socials {
