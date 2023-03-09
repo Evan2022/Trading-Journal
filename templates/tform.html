@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <input type="submit">
-                <button type="button" class="btn btn-outline-secondary"><a href="{% url 'journals' %}">Back</a></button>
+                <button class="btn btn-primary" onclick="previous_page()">Back</button>
             </form>
         </div>
     </div>

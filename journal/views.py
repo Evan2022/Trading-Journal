@@ -1,16 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from allauth.account.signals import user_signed_up
-from django.dispatch import receiver
-from django.core.mail import send_mail
 from core.forms import CustomLoginForm, CustomSignupForm
 from . models import Journal, Trade
 from . forms import JournalForm, TradeForm
-
-
-
-
-
 
 
 def login_view(request):
@@ -86,6 +78,7 @@ def tform(request, journal_id):
     return render(request, 'tform.html', context)
 
 
+@login_required
 def updateTrade(request, journal_id, trade_id):
     journal = Journal.objects.get(id=journal_id, user=request.user)
     trade = Trade.objects.get(id=trade_id, journal=journal)

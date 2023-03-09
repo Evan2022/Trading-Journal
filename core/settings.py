@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'journal',
+    'journal.apps.JournalConfig',
 ]
 
 SITE_ID = 1
