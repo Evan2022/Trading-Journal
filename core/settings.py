@@ -55,10 +55,30 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/journals/'
-LOGOUT_REDIRECT_URL = '/'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_HOST = 'smtp.gmail.com'
+#     EMAIL_PORT = 587
+#     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+#     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+#     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+#     EMAIL_USE_TLS = True
+
+
+LOGIN_REDIRECT_URL = '/journals/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,15 +157,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'tradingjournaltest@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Static files (CSS, JavaScript, Images)
